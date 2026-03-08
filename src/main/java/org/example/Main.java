@@ -1,17 +1,62 @@
 package org.example;
 
+import org.example.chapter01_1.Human;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Dog dog = new Dog("튀김이", 1, true);
+        Human h = new Human("이승환", 25, true);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        dog.jump();
+        h.jump();
+    }
+
+    public static class Animal {
+        public String name;
+        public Integer age;
+
+        Animal(String name, Integer age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        public void speak() {
+            System.out.println("동물이 말을 합니다!!");
+        }
+
+        public void jump() {
+            System.out.println("점프!!");
+        }
+    }
+
+    public static class Dog extends Animal {
+        public boolean tail;
+
+        public Dog(String name, Integer age, boolean tail) {
+            super(name, age);
+            this.tail = tail;
+        }
+
+        @Override
+        public void speak() {
+            System.out.println("멍멍");
+        }
+    }
+
+    public static class Human extends Animal {
+        public boolean hand;
+
+        public Human(String name, Integer age, boolean hand) {
+            super(name, age);
+            this.hand = hand;
+        }
+
+        @Override
+        public void speak() {
+            System.out.println("안녕하세요 저는 사람입니다");
         }
     }
 }
+

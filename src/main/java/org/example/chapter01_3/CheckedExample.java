@@ -37,7 +37,7 @@ public class CheckedExample {
             System.out.println("DB 연결 닫힘: " + url);
         }
 
-        public void a() {
+        public void a() throws Exception {
             b(10); // 문제 없음
             try {
                 b(0);
